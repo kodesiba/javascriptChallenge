@@ -1,0 +1,12 @@
+# Jupyter Notebook
+.ipynb_checkpoints
+
+#vscode config
+.vscode
+
+#pycache
+__pycache__/
+
+#chromedriver
+chromedriver.exe
+
