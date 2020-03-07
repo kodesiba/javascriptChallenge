@@ -1,6 +1,7 @@
 // create source data variable and variables for dropdowns
 var tableData = data;
 var filteredData = tableData
+
 var cities = tableData.map(data => data.city);
 var states = tableData.map(data => data.state);
 var countries =  tableData.map(data => data.country);
@@ -69,6 +70,14 @@ shapeItems.on('click', function() {
     // console.log(selectedShape)
   });
 
+var tbody = d3.select(".databody")
+filteredData.forEach(datapoint => {
+    var newrow = tbody.append('tr')
+    Object.entries(datapoint).forEach(([key, value]) => {
+        newrow.append('td').text(value)
+    })
+})
+
 // Select the enter button
 var enter = d3.select("#enter");
 
@@ -79,25 +88,34 @@ enter.on("click", function() {
     var datetimeInput = d3.select("#datetime-form-input").property('value');
 
     if ( datetimeInput ) {
+        console.log(`filtered by date: ${datetimeInput}`)
         filteredData = filteredData.filter( data => data.datetime === datetimeInput)}
 
     if ( selectedCity ) {
-        console.log(selectedCity)
+        console.log(`filtered by city: ${selectedCity}`)
         filteredData = filteredData.filter( data => data.city === selectedCity)}
 
     if ( selectedState ) {
-        console.log(selectedState)
+        console.log(`filtered by state: ${selectedState}`)
         filteredData = filteredData.filter( data => data.state === selectedState)}
 
     if ( selectedCountry ) {
-        console.log(selectedCountry)
+        console.log(`filtered by country: ${selectedCountry}`)
         filteredData = filteredData.filter( data => data.country === selectedCountry)}
 
     if ( selectedShape ) {
-        console.log(selectedShape)
+        console.log(`filtered by shape: ${selectedShape}`)
         filteredData = filteredData.filter( data => data.shape === selectedShape)}
 
     console.log(filteredData)
+
+    tbody.html("")    
+    filteredData.forEach(datapoint => {
+        var newrow = tbody.append('tr')
+        Object.entries(datapoint).forEach(([key, value]) => {
+            newrow.append('td').text(value)
+        })
+    })
 });
 
 
@@ -118,4 +136,17 @@ reset.on("click", function() {
     countryDropTop.text(`Filter by Country `);
     shapeDropTop.text(`Filter by Shape `);
     console.log("page reset")
+
+    tbody.html("")    
+    filteredData.forEach(datapoint => {
+        var newrow = tbody.append('tr')
+        Object.entries(datapoint).forEach(([key, value]) => {
+            newrow.append('td').text(value)
+        })
+    })
 });
+
+// prevent page from refreshing when enter is pressed
+d3.select('form').on('submit', () => {
+    d3.event.preventDefault()
+})

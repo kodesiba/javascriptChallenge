@@ -6,51 +6,49 @@
     <title>UFO Sightings</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
-<body>
-    
-</body>
+<body class="bodycolor">
     <div class="container-float" style="margin:2%">
         <div class="row">
             <div class="col-md-12">
-            <form>
-                <div class="form-group">
-                <label for="patient-form">Filter UFO Data by Date/Time>
-                <input class="form-control" id="datetime-form-input" name="patient-form" type="text" placeholder="1/1/2010">
+                <form>
+                    <div class="form-group">
+                    <label for="patient-form">Filter UFO Data by Date
+                    <input class="form-control" id="datetime-form-input" name="patient-form" type="text" placeholder="1/1/2010">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark dropdown-toggle cityDropTop" data-toggle="dropdown">Filter by City </button>
+                    <div class="dropdown-menu cityDropdown pre-scrollable">
+                    </div>
                 </div>
-                <button id="enter" type="button" class="btn btn-default">Enter</button>
-                <button id="reset" type="button" class="btn btn-default">Reset</button>
-            </form>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark dropdown-toggle stateDropTop" data-toggle="dropdown">Filter by State </button>
+                    <div class="dropdown-menu stateDropdown pre-scrollable">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark dropdown-toggle countryDropTop" data-toggle="dropdown">Filter by Country </button>
+                    <div class="dropdown-menu countryDropdown pre-scrollable">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-dark dropdown-toggle shapeDropTop" data-toggle="dropdown">Filter by Shape </button>
+                    <div class="dropdown-menu shapeDropdown pre-scrollable">
+                    </div>
+                </div>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-md-12">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-secondary dropdown-toggle cityDropTop" data-toggle="dropdown">Filter by City </button>
-                    <div class="dropdown-menu cityDropdown">
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-secondary dropdown-toggle stateDropTop" data-toggle="dropdown">Filter by State </button>
-                    <div class="dropdown-menu stateDropdown">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-secondary dropdown-toggle countryDropTop" data-toggle="dropdown">Filter by Country </button>
-                    <div class="dropdown-menu countryDropdown">
-                    </div>
-                </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-secondary dropdown-toggle shapeDropTop" data-toggle="dropdown">Filter by Shape </button>
-                    <div class="dropdown-menu shapeDropdown">
-                    </div>
-                </div>
+                <button id="enter" type="button" class="btn btn-primary">Enter</button>
+                <button id="reset" type="button" class="btn btn-danger">Reset</button>
             </div>
         </div>
         <hr>
@@ -59,6 +57,21 @@
             <h3>Filtered Data Summary</h3>
             <ul class="summary"></ul>
             </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Datetime</th>
+                        <th scope="col">City</th>
+                        <th scope="col">State</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Shape</th>
+                        <th scope="col">Duration (mins)</th>
+                        <th scope="col">Comments</th>
+                    </tr>
+                </thead>
+                <tbody class="databody">
+                </tbody>
+            </table>
         </div>
         <script src="static/js/data.js"></script>
         <script src="static/js/app.js"></script>
@@ -66,4 +79,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </div>
+</body">
 </html>
